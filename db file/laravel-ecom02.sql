@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               8.0.30 - MySQL Community Server - GPL
--- Server OS:                    Win64
--- HeidiSQL Version:             12.1.0.6537
+-- Versi server:                 8.0.30 - MySQL Community Server - GPL
+-- OS Server:                    Win64
+-- HeidiSQL Versi:               12.1.0.6537
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -15,11 +15,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for laravel-ecom02
-CREATE DATABASE IF NOT EXISTS `laravel-ecom02` /*!40100 DEFAULT CHARACTER SET armscii8 COLLATE armscii8_bin */ /*!80016 DEFAULT ENCRYPTION='N' */;
+-- Membuang struktur basisdata untuk laravel-ecom02
+CREATE DATABASE IF NOT EXISTS `laravel-ecom02` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `laravel-ecom02`;
 
--- Dumping structure for table laravel-ecom02.categories
+-- membuang struktur untuk table laravel-ecom02.categories
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -32,13 +32,16 @@ CREATE TABLE IF NOT EXISTS `categories` (
   UNIQUE KEY `categories_slug_unique` (`slug`),
   KEY `categories_category_id_foreign` (`category_id`),
   CONSTRAINT `categories_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.categories: ~1 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.categories: ~4 rows (lebih kurang)
 INSERT INTO `categories` (`id`, `name`, `slug`, `cover`, `category_id`, `created_at`, `updated_at`) VALUES
-	(1, 'Ventela', 'ventela', NULL, NULL, '2022-12-20 09:34:31', '2022-12-20 09:34:31');
+	(1, 'Ventela', 'ventela', NULL, NULL, '2022-12-20 09:34:31', '2022-12-20 09:34:31'),
+	(2, 'Compass', 'compass', NULL, NULL, '2022-12-20 21:15:01', '2022-12-20 21:15:01'),
+	(3, 'Warrior', 'warrior', NULL, NULL, '2022-12-20 21:15:14', '2022-12-20 21:15:14'),
+	(4, 'Patrobas', 'patrobas', NULL, NULL, '2022-12-20 21:15:25', '2022-12-20 21:15:25');
 
--- Dumping structure for table laravel-ecom02.failed_jobs
+-- membuang struktur untuk table laravel-ecom02.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -51,9 +54,9 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.failed_jobs: ~0 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.failed_jobs: ~0 rows (lebih kurang)
 
--- Dumping structure for table laravel-ecom02.media
+-- membuang struktur untuk table laravel-ecom02.media
 CREATE TABLE IF NOT EXISTS `media` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -77,14 +80,32 @@ CREATE TABLE IF NOT EXISTS `media` (
   UNIQUE KEY `media_uuid_unique` (`uuid`),
   KEY `media_model_type_model_id_index` (`model_type`,`model_id`),
   KEY `media_order_column_index` (`order_column`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.media: ~2 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.media: ~20 rows (lebih kurang)
 INSERT INTO `media` (`id`, `model_type`, `model_id`, `uuid`, `collection_name`, `name`, `file_name`, `mime_type`, `disk`, `conversions_disk`, `size`, `manipulations`, `custom_properties`, `generated_conversions`, `responsive_images`, `order_column`, `created_at`, `updated_at`) VALUES
-	(1, 'App\\Models\\Category', 1, 'ba72764d-7fb6-45c5-8568-c25fdeb27a0b', 'photo', '63a1e41410bfc_Sampul1', '63a1e41410bfc_Sampul1.png', 'image/png', 'public', 'public', 165242, '[]', '[]', '[]', '[]', 1, '2022-12-20 09:34:31', '2022-12-20 09:34:31'),
-	(2, 'App\\Models\\Product', 1, '237941cf-0f4a-4482-8c43-151ec23899d7', 'gallery', '63a1e453747c9_Sampul2', '63a1e453747c9_Sampul2.png', 'image/png', 'public', 'public', 119156, '[]', '[]', '[]', '[]', 1, '2022-12-20 09:35:33', '2022-12-20 09:35:33');
+	(3, 'App\\Models\\Category', 1, '05725558-07ea-42f9-b3a4-19764fa814f4', 'photo', '63a284fc7649b_Slide1', '63a284fc7649b_Slide1.PNG', 'image/png', 'public', 'public', 9225, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:01:02', '2022-12-20 21:01:02'),
+	(5, 'App\\Models\\Product', 1, '76754b56-2c12-41ef-8df6-8793278fed5a', 'gallery', '63a28816e53b9_Picture1', '63a28816e53b9_Picture1.jpg', 'image/jpeg', 'public', 'public', 43526, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:14:16', '2022-12-20 21:14:16'),
+	(6, 'App\\Models\\Category', 2, 'b0145f26-9096-4ad1-b039-3ad9414e5aa9', 'photo', '63a288417aeca_Slide2', '63a288417aeca_Slide2.PNG', 'image/png', 'public', 'public', 9979, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:15:01', '2022-12-20 21:15:01'),
+	(7, 'App\\Models\\Category', 3, '90d90029-82ba-4cce-b0d5-0f104c4fab10', 'photo', '63a2885120755_Slide3', '63a2885120755_Slide3.PNG', 'image/png', 'public', 'public', 9537, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:15:14', '2022-12-20 21:15:14'),
+	(8, 'App\\Models\\Category', 4, '839fae24-6cff-4259-aad3-1b1c0cea1083', 'photo', '63a2885c0c1bc_Slide4', '63a2885c0c1bc_Slide4.PNG', 'image/png', 'public', 'public', 10601, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:15:25', '2022-12-20 21:15:25'),
+	(9, 'App\\Models\\Product', 2, '837ae49c-0880-4591-b540-44c756c7d9a9', 'gallery', '63a289426012a_Picture2', '63a289426012a_Picture2.jpg', 'image/jpeg', 'public', 'public', 45207, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:19:43', '2022-12-20 21:19:43'),
+	(10, 'App\\Models\\Product', 3, 'de8f590c-4a89-404c-bf30-ca7bac57bf12', 'gallery', '63a2897e072fb_Picture3', '63a2897e072fb_Picture3.jpg', 'image/jpeg', 'public', 'public', 47896, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:20:37', '2022-12-20 21:20:37'),
+	(11, 'App\\Models\\Product', 4, '12c3991a-dbc5-4d13-9567-4a41db48211a', 'gallery', '63a289cb2dc73_Picture4', '63a289cb2dc73_Picture4.jpg', 'image/jpeg', 'public', 'public', 49464, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:21:32', '2022-12-20 21:21:32'),
+	(12, 'App\\Models\\Product', 5, '750ad5f5-9e3b-4332-bb15-90289b72d423', 'gallery', '63a28b7093462_compas1', '63a28b7093462_compas1.jpg', 'image/jpeg', 'public', 'public', 54328, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:28:36', '2022-12-20 21:28:36'),
+	(13, 'App\\Models\\Product', 6, '3c143db3-446e-4281-b688-096e21874eea', 'gallery', '63a28c9f4febe_compas2', '63a28c9f4febe_compas2.jpg', 'image/jpeg', 'public', 'public', 63811, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:33:37', '2022-12-20 21:33:37'),
+	(14, 'App\\Models\\Product', 7, '9966d9b8-7a0c-48b2-8680-be9d4e999ac1', 'gallery', '63a28ce409ae4_compas3', '63a28ce409ae4_compas3.jpg', 'image/jpeg', 'public', 'public', 79629, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:34:45', '2022-12-20 21:34:45'),
+	(15, 'App\\Models\\Product', 8, '5bb15c56-b268-41ae-b4fe-3aafd2d20e31', 'gallery', '63a28d2953b03_Compass Retrograde Slip On Black', '63a28d2953b03_Compass-Retrograde-Slip-On-Black.jpg', 'image/jpeg', 'public', 'public', 63420, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:35:55', '2022-12-20 21:35:55'),
+	(16, 'App\\Models\\Product', 9, '2249c601-8a29-4e3b-a610-e13cb21fa22c', 'gallery', '63a28d3f7086d_Warrior Classic High Black White - 149900', '63a28d3f7086d_Warrior-Classic-High-Black-White---149900.jpeg', 'image/jpeg', 'public', 'public', 221391, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:38:54', '2022-12-20 21:38:54'),
+	(17, 'App\\Models\\Product', 10, 'f8450141-6143-4b4f-a21a-9515d59533b2', 'gallery', '63a28e3a2dcbf_WARRIOR SLIP ON AVATAR 2.0 - 179900', '63a28e3a2dcbf_WARRIOR-SLIP-ON-AVATAR-2.0---179900.jpg', 'image/jpeg', 'public', 'public', 239821, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:40:47', '2022-12-20 21:40:47'),
+	(18, 'App\\Models\\Product', 11, '3867f747-73d4-48f9-aa06-673fa2bd93d8', 'gallery', '63a28ec076547_Warrior Tristan HC- 239900', '63a28ec076547_Warrior-Tristan-HC--239900.jpg', 'image/jpeg', 'public', 'public', 114695, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:42:43', '2022-12-20 21:42:43'),
+	(19, 'App\\Models\\Product', 12, '5c0e9c8e-d4bd-4e2f-b7b8-3d69f037c5d8', 'gallery', '63a28ed5a5299_Zeus - 269900', '63a28ed5a5299_Zeus---269900.jpg', 'image/jpeg', 'public', 'public', 63421, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:45:54', '2022-12-20 21:45:54'),
+	(20, 'App\\Models\\Product', 13, '0ac560c6-663a-495a-b7e3-53e9e82daa27', 'gallery', '63a28fdc1f132_Patrobas Ivan Black White - 279900', '63a28fdc1f132_Patrobas-Ivan-Black-White---279900.jpeg', 'image/jpeg', 'public', 'public', 87573, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:47:39', '2022-12-20 21:47:39'),
+	(21, 'App\\Models\\Product', 14, 'e45762d6-a5c9-4ab0-8977-57b905eba5a7', 'gallery', '63a2904d25fb8_Patrobas Cloud Slip On Black White - 289900', '63a2904d25fb8_Patrobas-Cloud-Slip-On-Black-White---289900.jpeg', 'image/jpeg', 'public', 'public', 96314, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:49:45', '2022-12-20 21:49:45'),
+	(22, 'App\\Models\\Product', 15, '9c685230-24bc-4e57-bacd-fdf2d02caf91', 'gallery', '63a290c85b250_Patrobas x Cleo Black Low - 529900', '63a290c85b250_Patrobas-x-Cleo-Black-Low---529900.jpeg', 'image/jpeg', 'public', 'public', 100151, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:51:47', '2022-12-20 21:51:47'),
+	(23, 'App\\Models\\Product', 16, '67b30ba9-79bb-4679-a6d9-036c09eb0822', 'gallery', '63a2911ccde5c_Patrobas x Cleo Black High - 549900', '63a2911ccde5c_Patrobas-x-Cleo-Black-High---549900.jpeg', 'image/jpeg', 'public', 'public', 103574, '[]', '[]', '[]', '[]', 1, '2022-12-20 21:53:02', '2022-12-20 21:53:02');
 
--- Dumping structure for table laravel-ecom02.migrations
+-- membuang struktur untuk table laravel-ecom02.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -92,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.migrations: ~13 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.migrations: ~13 rows (lebih kurang)
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
 	(2, '2014_10_12_100000_create_password_resets_table', 1),
@@ -108,7 +129,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(12, '2022_08_16_053450_create_shipments_table', 1),
 	(13, '2022_08_16_053945_create_payments_table', 1);
 
--- Dumping structure for table laravel-ecom02.orders
+-- membuang struktur untuk table laravel-ecom02.orders
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint unsigned DEFAULT NULL,
@@ -158,9 +179,9 @@ CREATE TABLE IF NOT EXISTS `orders` (
   CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.orders: ~0 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.orders: ~0 rows (lebih kurang)
 
--- Dumping structure for table laravel-ecom02.order_items
+-- membuang struktur untuk table laravel-ecom02.order_items
 CREATE TABLE IF NOT EXISTS `order_items` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `qty` int NOT NULL,
@@ -185,9 +206,9 @@ CREATE TABLE IF NOT EXISTS `order_items` (
   CONSTRAINT `order_items_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.order_items: ~0 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.order_items: ~0 rows (lebih kurang)
 
--- Dumping structure for table laravel-ecom02.password_resets
+-- membuang struktur untuk table laravel-ecom02.password_resets
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -195,9 +216,9 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.password_resets: ~0 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.password_resets: ~0 rows (lebih kurang)
 
--- Dumping structure for table laravel-ecom02.payments
+-- membuang struktur untuk table laravel-ecom02.payments
 CREATE TABLE IF NOT EXISTS `payments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `order_id` bigint unsigned NOT NULL,
@@ -225,9 +246,9 @@ CREATE TABLE IF NOT EXISTS `payments` (
   CONSTRAINT `payments_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.payments: ~0 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.payments: ~0 rows (lebih kurang)
 
--- Dumping structure for table laravel-ecom02.personal_access_tokens
+-- membuang struktur untuk table laravel-ecom02.personal_access_tokens
 CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -243,9 +264,9 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.personal_access_tokens: ~0 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.personal_access_tokens: ~0 rows (lebih kurang)
 
--- Dumping structure for table laravel-ecom02.products
+-- membuang struktur untuk table laravel-ecom02.products
 CREATE TABLE IF NOT EXISTS `products` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -262,13 +283,28 @@ CREATE TABLE IF NOT EXISTS `products` (
   UNIQUE KEY `products_slug_unique` (`slug`),
   KEY `products_category_id_foreign` (`category_id`),
   CONSTRAINT `products_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.products: ~1 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.products: ~16 rows (lebih kurang)
 INSERT INTO `products` (`id`, `name`, `slug`, `price`, `quantity`, `description`, `details`, `weight`, `category_id`, `created_at`, `updated_at`) VALUES
-	(1, 'Public Low', 'public-low', 290, 10, 'Sepatu ini', 'Sepatu ini merupakan', 250.00, 1, '2022-12-20 09:35:33', '2022-12-20 09:35:33');
+	(1, 'Public Low', 'public-low', 290000, 10, 'Sepatu Local Pride !', 'ORIGINAL 100% !\r\n-\r\nSneakers lokal yang super hits\r\nKualitas bintang 5 ⭐️⭐️⭐️⭐️⭐️\r\nHarga sangat terjangkau\r\nMade in Indonesia🇲🇨 #localpride\r\n-\r\n\r\nSize Chart :\r\n36 ; 23,1cm\r\n37 ; 23,8 cm\r\n38 ; 24.7 cm\r\n39 ; 25.2 cm\r\n40 ; 26.1 cm\r\n41 ; 26.5 cm\r\n42 ; 27.4 cm\r\n43 ; 28.3 cm\r\n44 ; 28.8 cm\r\n-\r\nOutsole Vulcanized\r\nInsole terbuat dari Ultralite Foam menjadikan Ventela sangat empuk dan nyaman dipakai', 1000.00, 1, '2022-12-20 21:10:29', '2022-12-20 21:10:29'),
+	(2, 'Public High', 'public-high', 300000, 10, 'Sepatu Local Pride !', 'ORIGINAL 100% !\r\n-\r\nSneakers lokal yang super hits\r\nKualitas bintang 5 ⭐️⭐️⭐️⭐️⭐️\r\nHarga sangat terjangkau\r\nMade in Indonesia🇲🇨 #localpride\r\n-\r\n\r\nSize Chart :\r\n36 ; 23,1cm\r\n37 ; 23,8 cm\r\n38 ; 24.7 cm\r\n39 ; 25.2 cm\r\n40 ; 26.1 cm\r\n41 ; 26.5 cm\r\n42 ; 27.4 cm\r\n43 ; 28.3 cm\r\n44 ; 28.8 cm\r\n-\r\nOutsole Vulcanized\r\nInsole terbuat dari Ultralite Foam menjadikan Ventela sangat empuk dan nyaman dipakai', 1000.00, 1, '2022-12-20 21:19:43', '2022-12-20 21:19:43'),
+	(3, 'Noir Low', 'noir-low', 450000, 10, 'Sepatu Local Pride !', 'ORIGINAL 100% !\r\n-\r\nSneakers lokal yang super hits\r\nKualitas bintang 5 ⭐️⭐️⭐️⭐️⭐️\r\nHarga sangat terjangkau\r\nMade in Indonesia🇲🇨 #localpride\r\n-\r\n\r\nSize Chart :\r\n36 ; 23,1cm\r\n37 ; 23,8 cm\r\n38 ; 24.7 cm\r\n39 ; 25.2 cm\r\n40 ; 26.1 cm\r\n41 ; 26.5 cm\r\n42 ; 27.4 cm\r\n43 ; 28.3 cm\r\n44 ; 28.8 cm\r\n-\r\nOutsole Vulcanized\r\nInsole terbuat dari Ultralite Foam menjadikan Ventela sangat empuk dan nyaman dipakai', 1000.00, 1, '2022-12-20 21:20:37', '2022-12-20 21:20:37'),
+	(4, 'Noir High', 'noir-high', 470000, 10, 'Sepatu Local Pride !', 'ORIGINAL 100% !\r\n-\r\nSneakers lokal yang super hits\r\nKualitas bintang 5 ⭐️⭐️⭐️⭐️⭐️\r\nHarga sangat terjangkau\r\nMade in Indonesia🇲🇨 #localpride\r\n-\r\n\r\nSize Chart :\r\n36 ; 23,1cm\r\n37 ; 23,8 cm\r\n38 ; 24.7 cm\r\n39 ; 25.2 cm\r\n40 ; 26.1 cm\r\n41 ; 26.5 cm\r\n42 ; 27.4 cm\r\n43 ; 28.3 cm\r\n44 ; 28.8 cm\r\n-\r\nOutsole Vulcanized\r\nInsole terbuat dari Ultralite Foam menjadikan Ventela sangat empuk dan nyaman dipakai', 1000.00, 1, '2022-12-20 21:21:32', '2022-12-20 21:21:32'),
+	(5, 'Gazelle Low Black White', 'gazelle-low-black-white', 408000, 10, 'Sepatu Local Pride !', 'Siluet pertama sepatu Compass® terlahir kembali pada 2018. Gazelle® Low dirancang dengan sentuhan vintage klasik yang dipadukan dengan detail modern yang relevan. Potongan rendah menekankan gaya santai dan kasual. Logo samping itu diwariskan dari tahun 1988, terinspirasi dari binatang Gazelle yang sedang berlari.\r\nㅤ\r\nㅤ\r\nSpesifikasi :\r\n• Potongan rendah\r\n• Upper menggunakan bahan kanvas\r\n• Lining upper menggunakan bahan kanvas\r\n• Logo samping menggunakan bahan PVC\r\n• Lubang tali berwarna perak\r\n• Tali sepatu menggunakan polyester\r\n• Pesanan khusus label woven\r\n• Foxing menggunakan bahan karet\r\n• Outsole menggunakan bahan karet\r\n• Proses vulkanisasi\r\n• Buatan Indonesia\r\nㅤ\r\nPanduan Ukuran :\r\n• US 4 / UK 3 / EUR 34 / CM 22.5\r\n• US 4.5 / UK 3.5 / EUR 35 / CM 23.5\r\n• US 5 / UK 4 / EUR 36 / CM 24\r\n• US 5.5 / UK 4.5 / EUR 37 / CM 24.5\r\n• US 6.5 / UK 5.5 / EUR 38 / CM 25\r\n• US 7 / UK 6 / EUR 39 / CM 26\r\n• US 8 / UK 7 / EUR 40 / CM 26.5\r\n• US 8.5 / UK 7.5 / EUR 41 / CM 27\r\n• US 9.5 / UK 8.5 / EUR 42 / CM 27.5\r\n• US 10 / UK 9 / EUR 43 / CM 28.5\r\n• US 10.5 / UK 9.5 / EUR 44 / CM 29\r\n• US 11 / UK 10.5 / EUR 45 / CM 29.5', 1000.00, 2, '2022-12-20 21:28:35', '2022-12-20 21:28:35'),
+	(6, 'Gazelle Hi Black White', 'gazelle-hi-black-white', 438000, 10, 'Sepatu Local Pride !', 'Siluet pertama sepatu Compass® terlahir kembali pada 2018. Gazelle® Hi dirancang dengan sentuhan vintage klasik yang dipadukan dengan detail modern yang relevan. Potongan tinggi memberikan kesan dan keunggulan pada gaya klasik, yang menjadikannya tak lekang oleh waktu dan segar. Logo samping itu diwariskan dari tahun 1988, terinspirasi dari binatang Gazelle yang sedang berlari.\r\nㅤ\r\nㅤ\r\nSpesifikasi :\r\n• Potongan tinggi\r\n• Upper menggunakan bahan kanvas\r\n• Lining upper menggunakan bahan kanvas\r\n• Logo samping menggunakan bahan PVC\r\n• Lubang tali berwarna perak\r\n• Tali sepatu menggunakan polyester\r\n• Pesanan khusus label woven\r\n• Foxing menggunakan bahan karet\r\n• Outsole menggunakan bahan karet\r\n• Proses vulkanisasi\r\n• Buatan Indonesia\r\nㅤ\r\nPanduan Ukuran :\r\n• US 4 / UK 3 / EUR 34 / CM 22.5\r\n• US 4.5 / UK 3.5 / EUR 35 / CM 23.5\r\n• US 5 / UK 4 / EUR 36 / CM 24\r\n• US 5.5 / UK 4.5 / EUR 37 / CM 24.5\r\n• US 6.5 / UK 5.5 / EUR 38 / CM 25\r\n• US 7 / UK 6 / EUR 39 / CM 26\r\n• US 8 / UK 7 / EUR 40 / CM 26.5\r\n• US 8.5 / UK 7.5 / EUR 41 / CM 27\r\n• US 9.5 / UK 8.5 / EUR 42 / CM 27.5\r\n• US 10 / UK 9 / EUR 43 / CM 28.5\r\n• US 10.5 / UK 9.5 / EUR 44 / CM 29\r\n• US 11 / UK 10.5 / EUR 45 / CM 29.5', 1000.00, 2, '2022-12-20 21:33:36', '2022-12-20 21:33:36'),
+	(7, 'Boy Pablo Low Black', 'boy-pablo-low-black', 778000, 10, 'Sepatu Local Pride !', 'COMPASS / BOY PABLO\r\nWHICH PABLO ARE YOU TODAY?\r\nRETROGRADE LOW\r\n\r\nGagasan “WHICH PABLO ARE YOU TODAY?” disederhanakan menjadi sebuah "Diary" dalam medium sepatu, dimana setiap harinya siapa pun yang memakai sepatu ini perasaannya akan terwakili oleh 5 ekspresi berbeda dari Boy Pablo yang dapat ditempel di tongue sepatu.\r\n\r\nGagasan ini sekaligus mengajak setiap orang untuk memahami diri mereka sebaik-baiknya; memahami pikiran, perasaan, dan suasana hati.\r\n\r\n\r\nSpesifikasi :\r\n• Potongan rendah\r\n• 5 buah emblem ekspresi Boy Pablo\r\n• Upper menggunakan bahan kanvas\r\n• Lidah menggunakan bahan nylon\r\n• Lining upper menggunakan bahan kanvas\r\n• Lining collar menggunakan bahan mesh dengan busa\r\n• Insole menggunakan bahan kanvas\r\n• Logo samping menggunakan bahan PVC\r\n• Lubang tali berwarna perak\r\n• Tali sepatu menggunakan katun\r\n• Tambahan tali\r\n• Label woven pesanan khusus\r\n• Sablon overlap di bagian upper dengan foxing\r\n• Foxing menggunakan bahan karet\r\n• Outsole menggunakan bahan karet\r\n• Bumper foxing diemboss khusus\r\n• Proses vulkanisasi\r\n• Buatan Indonesia\r\n\r\nPanduan Ukuran :\r\n• US 4 / UK 3 / EUR 34 / CM 22.5\r\n• US 4.5 / UK 3.5 / EUR 35 / CM 23.5\r\n• US 5 / UK 4 / EUR 36 / CM 24\r\n• US 5.5 / UK 4.5 / EUR 37 / CM 24.5\r\n• US 6.5 / UK 5.5 / EUR 38 / CM 25\r\n• US 7 / UK 6 / EUR 39 / CM 26\r\n• US 8 / UK 7 / EUR 40 / CM 26.5\r\n• US 8.5 / UK 7.5 / EUR 41 / CM 27\r\n• US 9.5 / UK 8.5 / EUR 42 / CM 27.5\r\n• US 10 / UK 9 / EUR 43 / CM 28.5\r\n• US 10.5 / UK 9.5 / EUR 44 / CM 29\r\n• US 11 / UK 10.5 / EUR 45 / CM 29.5', 1000.00, 2, '2022-12-20 21:34:45', '2022-12-20 21:34:45'),
+	(8, 'Retrograde Slip On Black', 'retrograde-slip-on-black', 458000, 10, 'Sepatu Local Pride !', 'Koleksi Compass®️ Retrograde Slip-On dihadirkan untuk anak muda yang cinta akan sebuah konsep hidup yang simpel dan praktis.\r\nㅤㅤ\r\nDesain Retrograde Slip-On terinspirasi dari sebuah siluet sepatu yang digunakan oleh pelaut saat berlayar dengan perahunya.\r\nㅤ\r\nㅤ\r\nSpesifikasi :\r\n• Potongan rendah\r\n• Upper menggunakan bahan kanvas\r\n• Lining upper menggunakan bahan PVC\r\n• Potongan heel berbahan PVC\r\n• Busa pada bagian ankle\r\n• Detail emboss pada bagian heel\r\n• Foxing menggunakan bahan karet\r\n• Outsole menggunakan bahan karet\r\n• Proses vulkanisasi\r\n• Buatan Indonesia\r\nㅤ\r\nPanduan Ukuran :\r\n• US 4 / UK 3 / EUR 34 / CM 22.5\r\n• US 4.5 / UK 3.5 / EUR 35 / CM 23.5\r\n• US 5 / UK 4 / EUR 36 / CM 24\r\n• US 5.5 / UK 4.5 / EUR 37 / CM 24.5\r\n• US 6.5 / UK 5.5 / EUR 38 / CM 25\r\n• US 7 / UK 6 / EUR 39 / CM 26\r\n• US 8 / UK 7 / EUR 40 / CM 26.5\r\n• US 8.5 / UK 7.5 / EUR 41 / CM 27\r\n• US 9.5 / UK 8.5 / EUR 42 / CM 27.5\r\n• US 10 / UK 9 / EUR 43 / CM 28.5\r\n• US 10.5 / UK 9.5 / EUR 44 / CM 29\r\n• US 11 / UK 10.5 / EUR 45 / CM 29.5', 1000.00, 2, '2022-12-20 21:35:55', '2022-12-20 21:35:55'),
+	(9, 'Warrior Classic High Black White', 'warrior-classic-high-black-white', 149000, 10, 'Sepatu Local Pride !', 'Model Produk : Sepatu Warrior Classic HC Black White\r\nWarna : Black White | BNIB (Brand New In Box), 100% Original\r\nBahan : kanvas tebal | sol dari karet\r\n\r\nKeterangan Ukuran size dalam cm Insole\r\nSize 37 = 24.5 cm\r\nSize 38 = 25 cm\r\nSize 39 = 25.5 cm\r\nSize 40 = 26cm\r\nSize 41 = 27cm\r\nSize 42 = 27.5 cm\r\nSize 43 = 28 cm', 1000.00, 3, '2022-12-20 21:38:54', '2022-12-20 21:38:54'),
+	(10, 'Slip On Avatar 2.0', 'slip-on-avatar-2-0', 179900, 10, 'Sepatu Local Pride !', 'Model Produk :Warrior Slip On Avatar 2.0\r\nWarna : Putih | BNIB (Brand New In Box), 100% Original\r\nVariasi Size : 37-43\r\nBahan : kanvas tebal | sol dari karet\r\nKeterangan Ukuran size dalam cm Insole\r\n\r\n37: 24,1cm\r\n38: 24,7cm\r\n39: 25,3cm\r\n40: 25,9cm\r\n41: 26,5cm\r\n42: 27,1cm\r\n43: 27,7cm\r\n44: 28.3cm', 1000.00, 3, '2022-12-20 21:40:47', '2022-12-20 21:40:47'),
+	(11, 'Tristan High Cut', 'tristan-high-cut', 239900, 10, 'Sepatu Local Pride !', 'Model Produk : Sepatu Warrior Tristan High Cut\r\n\r\n• upper bahan corduroy serat besar\r\n• foxing lebar membuat kokoh pada sepatu\r\n• insole model removable bahan Eva Phylon\r\n• logo emboss baru Warrior bahan TPR hitam\r\n\r\nKeterangan Ukuran size dalam cm Insole\r\n\r\n37: 24,1cm\r\n38: 24,7cm\r\n39: 25,3cm\r\n40: 25,9cm\r\n41: 26,5cm\r\n42: 27,1cm\r\n43: 27,7cm\r\n44: 28.3cm', 1000.00, 3, '2022-12-20 21:42:43', '2022-12-20 21:42:43'),
+	(12, 'Zeus', 'zeus', 269900, 10, 'Sepatu Local Pride !', 'Keluaran terbaru kami yang cocok jadi sepatu baru untuk OOTD Lebaran tahun ini. Dengan model overwashed black dan gradasi warna yang ikonik, ditambah bagian foxing yang glossy. Pastinya mampu meningkatkan overall penampilan kamu jadi kece maksimal!\r\n\r\nSPESIFIKASI\r\nBahan Upper : Canvas 12 oz\r\n✅ Overwashed Black Canvas\r\n✅ Washing Gradasi\r\n✅ Removable insole untuk menunjang kenyamanan saat digunakan sepanjang hari\r\n✅ Foxing glossy yang mampu menambah kesan mewah dan elegan pada sepatu\r\n\r\nTersedia dalam size : 37-43', 1000.00, 3, '2022-12-20 21:45:54', '2022-12-20 21:45:54'),
+	(13, 'Classic High Black White', 'classic-high-black-white', 279900, 10, 'Sepatu Local Pride !', 'IVAN series adalah sepatu yang sudah melalui proses penyegaran dengan menambahkan upper logo “wavy” sebagai brand identity Patrobas. Sepatu ini dirancang dengan konstruksi Vulcanized dan sudah melalui proses suhu uap yang tinggi, jadi tidak perlu diragukan lagi kualitasnya. Ivan di desain stylish dan menggunakan material berkualitas agar nyaman dan cocok jika digunakan untuk keseharian atau “beater” kalian.\r\n\r\nCOLOR Black White\r\nMATERIAL Canvas\r\nPVC Leather\r\nRubber Foxing\r\nRubber Gum Sole\r\n\r\nSize Chart\r\nSIZE 36 = 24,5 cm\r\nSIZE 37 = 25,2 cm\r\nSIZE 38 = 25,9 cm\r\nSIZE 39 = 26,3 cm\r\nSIZE 40 = 27,0 cm\r\nSIZE 41 = 27,7 cm\r\nSIZE 42 = 28,1 cm\r\nSIZE 43 = 28,5 cm\r\nSIZE 44 = 29 cm', 1000.00, 4, '2022-12-20 21:47:39', '2022-12-20 21:47:39'),
+	(14, 'Cloud Slip On Black White', 'cloud-slip-on-black-white', 289900, 10, 'Sepatu Local Pride !', 'Terinspirasi dari awan yang konon empuk dan lembut, Patrobas Cloud Slip On dirancang dengan kenyamanan 3 in 1 :\r\n\r\n1. Collar berbahan Mesh (anti-lecet)\r\n2. Insole Patrofoam tech\r\n3. Lining breathable mesh\r\n\r\nDidesain untuk #gengpatrobas yang suka kepraktisan dan memiliki keseharian dengan mobilitas tinggi agar tetap merasakan kenyamanan yang maksimal\r\n\r\nMaterial :\r\n– 12 oz Canvas\r\n– Patrobas Logo Stitching Pattern Toe Cap\r\n– Breathable mesh collar\r\n– Breathable mesh lining\r\n– Patrofoam tech insole\r\n– Foxing Patch Logo Patrobas\r\n\r\nSize Chart\r\nSIZE 36 = 24,5 cm\r\nSIZE 37 = 25,2 cm\r\nSIZE 38 = 25,9 cm\r\nSIZE 39 = 26,3 cm\r\nSIZE 40 = 27,0 cm\r\nSIZE 41 = 27,7 cm\r\nSIZE 42 = 28,1 cm\r\nSIZE 43 = 28,5 cm\r\nSIZE 44 = 29 cm', 1000.00, 4, '2022-12-20 21:49:45', '2022-12-20 21:49:45'),
+	(15, 'Cleo Black Low', 'cleo-black-low', 529900, 10, 'Sepatu Local Pride !', 'Sepatu PATROBAS X CLEO Series (Limited Edition)\r\n\r\nTerima kasih telah berpartisipasi dalam #LangkahMurni Cleo x Patrobas. Dengan membeli sepatu hasil kolaborasi ini, kamu telah menjadi bagian dari kami, generasi muda yang memulai satu aksi #LangkahMurni untuk Negeri.\r\n#LangkahMurni adalah komitmen Cleo untuk melestarikan Alam. Salah satunya dengan koleksi sepatu berbahan kanvas rPET (terbuat dari daur ulang botol plastik).', 1000.00, 4, '2022-12-20 21:51:47', '2022-12-20 21:51:47'),
+	(16, 'Cleo Black High', 'cleo-black-high', 549900, 10, 'Sepatu Local Pride !', 'Sepatu PATROBAS X CLEO Series (Limited Edition)\r\n\r\nTerima kasih telah berpartisipasi dalam #LangkahMurni Cleo x Patrobas. Dengan membeli sepatu hasil kolaborasi ini, kamu telah menjadi bagian dari kami, generasi muda yang memulai satu aksi #LangkahMurni untuk Negeri.\r\n#LangkahMurni adalah komitmen Cleo untuk melestarikan Alam. Salah satunya dengan koleksi sepatu berbahan kanvas rPET (terbuat dari daur ulang botol plastik).', 1000.00, 4, '2022-12-20 21:53:02', '2022-12-20 21:53:02');
 
--- Dumping structure for table laravel-ecom02.product_tag
+-- membuang struktur untuk table laravel-ecom02.product_tag
 CREATE TABLE IF NOT EXISTS `product_tag` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `product_id` bigint unsigned NOT NULL,
@@ -280,13 +316,28 @@ CREATE TABLE IF NOT EXISTS `product_tag` (
   KEY `product_tag_tag_id_foreign` (`tag_id`),
   CONSTRAINT `product_tag_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
   CONSTRAINT `product_tag_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.product_tag: ~1 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.product_tag: ~16 rows (lebih kurang)
 INSERT INTO `product_tag` (`id`, `product_id`, `tag_id`, `created_at`, `updated_at`) VALUES
-	(1, 1, 1, NULL, NULL);
+	(1, 1, 1, NULL, NULL),
+	(2, 2, 1, NULL, NULL),
+	(3, 3, 1, NULL, NULL),
+	(4, 4, 1, NULL, NULL),
+	(5, 5, 2, NULL, NULL),
+	(6, 6, 2, NULL, NULL),
+	(7, 7, 2, NULL, NULL),
+	(8, 8, 2, NULL, NULL),
+	(9, 9, 3, NULL, NULL),
+	(10, 10, 3, NULL, NULL),
+	(11, 11, 3, NULL, NULL),
+	(12, 12, 3, NULL, NULL),
+	(13, 13, 4, NULL, NULL),
+	(14, 14, 4, NULL, NULL),
+	(15, 15, 4, NULL, NULL),
+	(16, 16, 4, NULL, NULL);
 
--- Dumping structure for table laravel-ecom02.shipments
+-- membuang struktur untuk table laravel-ecom02.shipments
 CREATE TABLE IF NOT EXISTS `shipments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint unsigned DEFAULT NULL,
@@ -318,9 +369,9 @@ CREATE TABLE IF NOT EXISTS `shipments` (
   CONSTRAINT `shipments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.shipments: ~0 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.shipments: ~0 rows (lebih kurang)
 
--- Dumping structure for table laravel-ecom02.tags
+-- membuang struktur untuk table laravel-ecom02.tags
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -330,13 +381,16 @@ CREATE TABLE IF NOT EXISTS `tags` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `tags_name_unique` (`name`),
   UNIQUE KEY `tags_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.tags: ~1 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.tags: ~4 rows (lebih kurang)
 INSERT INTO `tags` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-	(1, 'Ventela', 'ventela', '2022-12-20 09:34:45', '2022-12-20 09:34:45');
+	(1, 'Ventela', 'ventela', '2022-12-20 21:01:14', '2022-12-20 21:01:14'),
+	(2, 'Compass', 'compass', '2022-12-20 21:15:34', '2022-12-20 21:15:41'),
+	(3, 'Warrior', 'warrior', '2022-12-20 21:15:48', '2022-12-20 21:15:48'),
+	(4, 'Patrobas', 'patrobas', '2022-12-20 21:15:56', '2022-12-20 21:15:56');
 
--- Dumping structure for table laravel-ecom02.users
+-- membuang struktur untuk table laravel-ecom02.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -357,10 +411,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel-ecom02.users: ~2 rows (approximately)
+-- Membuang data untuk tabel laravel-ecom02.users: ~2 rows (lebih kurang)
 INSERT INTO `users` (`id`, `username`, `email`, `email_verified_at`, `password`, `is_admin`, `address`, `address2`, `province_id`, `city_id`, `postcode`, `phone`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$hXWWlnM2VRDT08TxpjqxQOKrAU1W8.tC5CAfkKpBpgOZZoJoMqZEW', 1, NULL, NULL, NULL, NULL, NULL, NULL, 'R9o3PvVvUDtnfhJU0SnRUgKgqLVYYKWAzUAyPoMfhbuzwoebjy7kuZgPbuT4', NULL, NULL),
-	(2, 'afghan', 'afghan@gmail.com', NULL, '$2y$10$WlvMROyGAyXUur/Akbbyl.IRXcXILIdzNxzXUwJxdY5UALZSxXDJC', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-20 09:39:37', '2022-12-20 09:39:37');
+	(1, 'admin', 'admin@example.com', NULL, '$2y$10$UGoD7a0eIIyp97TSCqN3KehKLcaymsU6bAEnwACdGo7a9WWTyqXNe', 1, NULL, NULL, NULL, NULL, NULL, NULL, 'LOBMB67k9PaRZKDKW8eJch3ayjpQi8M5SYCpvS9YedZu4qItRjUmgAVIj0VA', NULL, NULL),
+	(2, 'riodwnto', 'riodwianto21@gmail.com', NULL, '$2y$10$uWjXTHVPhDcpHdcoaCVrd.eMNtSo1ca.puwIQJVo.WJMsBUi9Q1kW', 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ccsiB2093AecnBNaO4VnwJTNbQwTz6H2RYjSIC3HVowgUwRdXPHr0hQDnvaU', '2022-12-20 20:41:40', '2022-12-20 20:41:40');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
