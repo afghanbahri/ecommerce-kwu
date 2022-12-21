@@ -4,12 +4,12 @@
     <!-- Breadcrumb Section Begin -->
     <section class="mb-5">
       <div class="container">
-          <div class="hero__item set-bg" data-setbg="{{ asset('frontend/img/hero/banner.jpg') }}">
+          <div class="hero__item set-bg" data-setbg="{{ asset('frontend/img/hero/buymaxco.png') }}">
               <div class="hero__text">
-                  <span>FRUIT FRESH</span>
-                  <h2>Vegetable <br />100% Organic</h2>
-                  <p>Free Pickup and Delivery Available</p>
-                  <a href="#" class="primary-btn">SHOP NOW</a>
+                  <span>LOCAL PRIDE</span>
+                  <h2>Sepatu <br />100% Original</h2>
+                  <p>Cintai Produk Dalam Negeri !</p>
+                  <a href="/shop" class="primary-btn">SHOP NOW</a>
               </div>
           </div>
       </div>
@@ -52,23 +52,4 @@
       </div>
     </section>
     <!-- Featured Section End -->
-
-    <!-- Banner Begin -->
-    <div class="banner">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="banner__pic">
-              <img src="{{ asset('frontend/img/banner/banner-1.jpg') }}" alt="" />
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="banner__pic">
-              <img src="{{ asset('frontend/img/banner/banner-2.jpg') }}" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Banner End -->
 @endsection

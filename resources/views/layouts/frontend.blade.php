@@ -6,7 +6,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>BUYMAXCO | KWU-A3</title>
+    <title>BUYMAXCO | KWU - A3</title>
 
     <!-- Google Font -->
     <link
@@ -35,7 +35,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
       <div class="humberger__menu__logo">
-        <a href="#"><img src="{{ asset('frontend/img/logo.png') }}" alt="" /></a>
+        <h2 style="font-weight: 1000"><a href="/">BUYMAXCO</a></h2>
       </div>
       <div class="humberger__menu__cart">
         <ul>
@@ -46,7 +46,7 @@
             <a href="#"><i class="fa fa-shopping-bag"></i> <span>{{ $cartCount }}</span></a>
           </li>
         </ul>
-        <div class="header__cart__price">item: <span>${{ $cartTotal }}</span></div>
+        <div class="header__cart__price">item: <span>Rp. {{ $cartTotal }}</span></div>
       </div>
       <div class="humberger__menu__widget">
           @guest
@@ -89,7 +89,6 @@
               @endforeach
             </ul>
           </li>
-          <li><a href="#">Contact</a></li>
         </ul>
       </nav>
       <div id="mobile-menu-wrap"></div>
@@ -138,11 +137,8 @@
                 @else 
                 <div class="header__top__right">
                 <div
-                  class="header__top__right__language header__top__right__auth"
-                >
-                  <a class="d-inline" href="#"
-                    ><i class="fa fa-user"></i> {{ auth()->user()->username }}</a
-                  >
+                  class="header__top__right__language header__top__right__auth">
+                  <a class="d-inline" href="#"><i class="fa fa-user"></i> {{ auth()->user()->username }}</a>
                   <span class="arrow_carrot-down"></span>
                   <ul>
                     <li><a href="#">Profile</a></li>
@@ -164,7 +160,7 @@
         <div class="row">
           <div class="col-lg-3">
             <div class="header__logo">
-              <a href="/"><img src="{{ asset('frontend/img/logo.png') }}" alt="" /></a>
+              <h2 style="font-weight: 1000"><a href="/">BUYMAXCO</a></h2>
             </div>
           </div>
           <div class="col-lg-6">
@@ -180,7 +176,6 @@
                     @endforeach
                   </ul>
                 </li>
-                <li><a href="#">Contact</a></li>
               </ul>
             </nav>
           </div>
@@ -196,7 +191,7 @@
                   >
                 </li>
               </ul>
-              <div class="header__cart__price">item: <span>Rp.{{ $cartTotal }}</span></div>
+              <div class="header__cart__price">item: <span>Rp. {{ $cartTotal }}</span></div>
             </div>
           </div>
         </div>
@@ -244,7 +239,7 @@
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="footer__about">
               <div class="footer__about__logo">
-                <a href="/"><img src="{{ asset('frontend/img/logo.png') }}" alt="" /></a>
+                <h2 style="font-weight: 1000"><a href="/">BUYMAXCO</a></h2>
               </div>
               <ul>
                 <li>Address: Jl. Pasir Honje No. 14</li>
@@ -266,7 +261,7 @@
                   </script>
                   All rights reserved | Kewirausahaan
                   <i class="fa fa-heart" aria-hidden="true"></i> by
-                  <a href="" target="_blank">A2</a>
+                  <a href="" target="_blank">A3</a>
                   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
               </div>
