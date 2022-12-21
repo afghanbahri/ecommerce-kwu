@@ -6,7 +6,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Ogani | Template</title>
+    <title>BUYMAXCO | KWU-A2</title>
 
     <!-- Google Font -->
     <link
@@ -40,7 +40,7 @@
       <div class="humberger__menu__cart">
         <ul>
           <li>
-            <a href="#"><i class="fa fa-heart"></i> <span>1</span></a>
+            <a href="#"><i class="fa fa-heart"></i> <span>0</span></a>
           </li>
           <li>
             <a href="#"><i class="fa fa-shopping-bag"></i> <span>{{ $cartCount }}</span></a>
@@ -101,8 +101,8 @@
       </div>
       <div class="humberger__menu__contact">
         <ul>
-          <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-          <li>Free Shipping for all Order of $99</li>
+          <li><i class="fa fa-envelope"></i>buymax2020@gmail.com</li>
+          <li>Cintai Produk Dalam Negeri</li>
         </ul>
       </div>
     </div>
@@ -196,7 +196,7 @@
                   >
                 </li>
               </ul>
-              <div class="header__cart__price">item: <span>${{ $cartTotal }}</span></div>
+              <div class="header__cart__price">item: <span>Rp{{ $cartTotal }}</span></div>
             </div>
           </div>
         </div>
