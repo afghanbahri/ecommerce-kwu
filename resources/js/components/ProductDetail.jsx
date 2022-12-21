@@ -96,7 +96,7 @@ const ProductDetail = () => {
                                     <span>(18 reviews)</span>
                                 </div>
                                 <div className="product__details__price">
-                                    ${product.price}
+                                    Rp. {product.price}
                                 </div>
                                 <p>{product.description}</p>
                                 <form

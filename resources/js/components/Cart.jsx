@@ -69,7 +69,7 @@ const Cart = () => {
                                     <h5>{cart.name}</h5>
                                 </td>
                                 <td className="shoping__cart__price">
-                                    ${cart.price}
+                                    Rp. {cart.price}
                                 </td>
                                 <td className="shoping__cart__quantity">
                                     <div className="quantity">
@@ -105,7 +105,7 @@ const Cart = () => {
                                     </div>
                                 </td>
                                 <td className="shoping__cart__total">
-                                    ${cart.price * cart.quantity}
+                                    Rp. {cart.price * cart.quantity}
                                 </td>
                                 <td className="shoping__cart__item__close">
                                     <span
@@ -179,10 +179,10 @@ const Cart = () => {
                         <h5>Cart Total</h5>
                         <ul>
                             <li>
-                                Subtotal <span>${total}</span>
+                                Subtotal <span>Rp. {total}</span>
                             </li>
                             <li>
-                                Total <span>${total}</span>
+                                Total <span>Rp. {total}</span>
                             </li>
                         </ul>
                         <a href="/order/checkout" className="primary-btn">

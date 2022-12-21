@@ -329,7 +329,7 @@ const Checkout = () => {
                                                     {cart.name} ({cart.quantity}{" "}
                                                     x {cart.price})
                                                     <span>
-                                                        $
+                                                        Rp. 
                                                         {cart.price *
                                                             cart.quantity}
                                                     </span>
@@ -339,7 +339,7 @@ const Checkout = () => {
                                     )}
                                 </ul>
                                 <div className="checkout__order__total">
-                                    Total <span>${total}</span>
+                                    Total <span>Rp. {total}</span>
                                 </div>
                                 {wait ? (
                                     <button

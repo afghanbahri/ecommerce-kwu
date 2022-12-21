@@ -154,7 +154,7 @@ const ProductShop = () => {
                                                 {product.name}
                                             </a>
                                         </h6>
-                                        <h5>${product.price}</h5>
+                                        <h5>Rp. {product.price}</h5>
                                     </div>
                                 </div>
                             </div>
